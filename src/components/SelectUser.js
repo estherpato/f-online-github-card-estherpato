@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 
 class SelectUser extends Component {
     render() {
-        const { adalabUsers } = this.props;
+        const { adalabUsers, selectHandler } = this.props;
         return (
-            <select>
+            <select onChange={selectHandler}>
                 {adalabUsers.map(user => {
                     return (
-                        <option value={user.login}>{user.login}</option>
+                        <option 
+                        key={user.id}
+                        value={user.login}>{user.login}</option>
                     );
                 })}
             </select>

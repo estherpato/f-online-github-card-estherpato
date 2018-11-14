@@ -9,12 +9,15 @@ class App extends Component {
 
     this.state = {
       adalabUsers: JSON.parse(localStorage.getItem("users")) || [],
+      userSelected: '',
     }
+
+    this.selectHandler = this.selectHandler.bind(this);
   }
 
   componentDidMount() {
     if (this.state.adalabUsers.length === 0) {
-    this.getUsers();
+      this.getUsers();
     }
   }
 
@@ -33,8 +36,8 @@ class App extends Component {
       .then(res => res.json())
       .then(data => {
         usersData.push(data)
-        usersData.sort((a,b) => (a.login > b.login) ? 1 : ((b.login > a.login) ? -1 : 0)); 
-        this.setState({ adalabUsers: [...usersData]})
+        usersData.sort((a, b) => (a.login > b.login) ? 1 : ((b.login > a.login) ? -1 : 0));
+        this.setState({ adalabUsers: [...usersData] })
         this.setLocalStorage(usersData)
       })
   }
@@ -43,10 +46,18 @@ class App extends Component {
     localStorage.setItem("users", JSON.stringify(users));
   }
 
+  selectHandler(e) {
+    this.setState({ userSelected: e.target.value })
+  }
+
   render() {
+    const { adalabUsers } = this.state
     return (
       <div className="App">
-        <SelectUser adalabUsers={this.state.adalabUsers} />
+        <SelectUser
+          adalabUsers={adalabUsers}
+          selectHandler={this.selectHandler}
+        />
       </div>
     );
   }
