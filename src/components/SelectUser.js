@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
+import '../stylesheets/SelectUser.css';
 
 class SelectUser extends Component {
     render() {
         const { adalabUsers, selectHandler } = this.props;
         return (
-            <select onChange={selectHandler}>
+            <select
+                className="select"
+                onChange={selectHandler}>
+                <option className="option"
+                    value=''
+                >
+                    Selecciona una usuaria
+                </option>
                 {adalabUsers.map(user => {
                     return (
-                        <option 
-                        key={user.id}
-                        value={user.login}>{user.login}</option>
+                        <option
+                            key={user.id}
+                            className="option"
+                            value={user.login}>{user.login}</option>
                     );
                 })}
             </select>

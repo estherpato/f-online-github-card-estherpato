@@ -1,0 +1,81 @@
+.card {
+    margin-top: 50px;
+    width: 350px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 10px var(--bg-color-dark);
+}
+
+.card-pic-container {
+    border-radius: 10px;
+}
+
+.card-pic {
+    width: 350px;
+    height: 350px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-position: center;
+    background-size: contain;
+}
+
+.user-info {
+    padding: 20px 25px;
+    background-color: var(--card-light);
+    width: 100%;
+}
+
+.user-username {
+    color: var(--icon-color);
+}
+
+.user-name {
+    color: var(--name-color);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.user-loca {
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--date-color);
+}
+
+.fa-map-marker-alt {
+    color: var(--poi-color)
+}
+
+.data-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px 40px;
+    width: 100%;
+    background-image: linear-gradient(var(--name-color), var(--poi-color));
+}
+
+.data-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-number {
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.box-text {
+    color: white;
+}
+
+.user-date {
+    margin-top: 10px;
+    color: var(--date-color);
+    padding-left: 70px;
+}

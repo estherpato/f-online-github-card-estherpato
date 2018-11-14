@@ -55,6 +55,7 @@ class App extends Component {
     const { adalabUsers, userSelected } = this.state
     return (
       <div className="App">
+        <i className="fab fa-github"></i>
         <SelectUser
           adalabUsers={adalabUsers}
           selectHandler={this.selectHandler}
