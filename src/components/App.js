@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SelectUser from './SelectUser.js';
+import UserCard from './UserCard.js';
 import '../stylesheets/App.css';
 const usersData = [];
 
@@ -51,12 +52,16 @@ class App extends Component {
   }
 
   render() {
-    const { adalabUsers } = this.state
+    const { adalabUsers, userSelected } = this.state
     return (
       <div className="App">
         <SelectUser
           adalabUsers={adalabUsers}
           selectHandler={this.selectHandler}
+        />
+        <UserCard
+          adalabUsers={adalabUsers}
+          userSelected={userSelected}
         />
       </div>
     );
