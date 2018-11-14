@@ -13,3 +13,10 @@
     transform: translate(-50%,-50%);
     z-index: -1;
 }
+
+.loading-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

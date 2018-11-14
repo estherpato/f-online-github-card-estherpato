@@ -37,7 +37,7 @@ class App extends Component {
       .then(res => res.json())
       .then(data => {
         usersData.push(data)
-        usersData.sort((a, b) => (a.login > b.login) ? 1 : ((b.login > a.login) ? -1 : 0));
+        usersData.sort((a, b) => (a.login.toLowerCase() > b.login.toLowerCase()) ? 1 : ((b.login.toLowerCase() > a.login.toLowerCase()) ? -1 : 0));
         this.setState({ adalabUsers: [...usersData] })
         this.setLocalStorage(usersData)
       })
@@ -52,20 +52,33 @@ class App extends Component {
   }
 
   render() {
-    const { adalabUsers, userSelected } = this.state
-    return (
-      <div className="App">
-        <i className="fab fa-github"></i>
-        <SelectUser
-          adalabUsers={adalabUsers}
-          selectHandler={this.selectHandler}
-        />
-        <UserCard
-          adalabUsers={adalabUsers}
-          userSelected={userSelected}
-        />
-      </div>
-    );
+    const { adalabUsers, userSelected } = this.state;
+    if (adalabUsers.length === 75) {
+      return (
+        <div className="App">
+          <i className="fab fa-github"></i>
+          <SelectUser
+            adalabUsers={adalabUsers}
+            selectHandler={this.selectHandler}
+          />
+          <UserCard
+            adalabUsers={adalabUsers}
+            userSelected={userSelected}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          <i className="fab fa-github"></i>
+          <div className="loading-container">
+            <img src="https://loading.io/spinners/balls/lg.circle-slack-loading-icon.gif" alt="gif espera" />
+            <p>Cargando la lista de usuarios...</p>
+          </div>
+        </div>
+
+      );
+    }
   }
 }
 

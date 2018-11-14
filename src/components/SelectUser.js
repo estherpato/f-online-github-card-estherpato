@@ -7,20 +7,22 @@ class SelectUser extends Component {
         return (
             <select
                 className="select"
-                onChange={selectHandler}>
+                onChange={selectHandler}
+            >
                 <option className="option"
                     value=''
                 >
-                    Selecciona una usuaria
+                    Selecciona un usuario
                 </option>
-                {adalabUsers.map(user => {
-                    return (
-                        <option
-                            key={user.id}
-                            className="option"
-                            value={user.login}>{user.login}</option>
-                    );
-                })}
+                {adalabUsers
+                    .map(user => {
+                        return (
+                            <option
+                                key={user.id}
+                                className="option"
+                                value={user.login}>{user.login}</option>
+                        );
+                    })}
             </select>
         );
     }
