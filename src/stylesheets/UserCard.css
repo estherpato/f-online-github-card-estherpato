@@ -50,7 +50,8 @@
 }
 
 .fa-map-marker-alt {
-    color: var(--poi-color)
+    color: var(--poi-color);
+    margin-right: 5px;
 }
 
 .data-container {
