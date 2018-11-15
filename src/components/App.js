@@ -11,9 +11,11 @@ class App extends Component {
     this.state = {
       adalabUsers: JSON.parse(localStorage.getItem("users")) || [],
       userSelected: '',
+      selectOpen: false,
     }
 
     this.selectHandler = this.selectHandler.bind(this);
+    this.arrowHandler = this.arrowHandler.bind(this);
   }
 
   componentDidMount() {
@@ -52,8 +54,16 @@ class App extends Component {
     this.setState({ userSelected: e.target.value })
   }
 
+  arrowHandler() {
+    if (!this.state.selectOpen) {
+      this.setState({ selectOpen: true })
+    } else {
+      this.setState({ selectOpen: false })
+    }
+  }
+
   render() {
-    const { adalabUsers, userSelected } = this.state;
+    const { adalabUsers, userSelected, selectOpen } = this.state;
     if (adalabUsers.length === 75) {
       return (
         <div className="App">
@@ -61,6 +71,8 @@ class App extends Component {
           <SelectUser
             adalabUsers={adalabUsers}
             selectHandler={this.selectHandler}
+            selectOpen={selectOpen}
+            arrowHandler={this.arrowHandler}
           />
           <UserCard
             adalabUsers={adalabUsers}

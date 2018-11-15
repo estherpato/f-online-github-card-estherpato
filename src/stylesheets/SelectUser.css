@@ -4,13 +4,13 @@
     margin-top: 50px;
     width: 300px;
     height: 30px;
-    border: none;
-    color: var(--icon-color);
-    padding-left: 10px;
+    background-color: white;
+    padding-left: 15px;
     box-shadow: 2px 2px 10px var(--bg-color-dark);
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .select select {
@@ -21,10 +21,53 @@
     -webkit-appearance: none;
 }
 
-.select:focus {
-    outline: none;
+.fa-caret-down,
+.fa-caret-up {
+    color: black;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.option-list {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    width: 300px;
+    height: 500px;
+    overflow-y: scroll;
+    background-color: white;
+    padding-left: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .option {
+    margin-top: 10px;
     color: black;
+}
+
+.first-option {
+    color: var(--icon-color);
+    margin-top: 5px;
+}
+
+.option-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.option-list::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+.option-list::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+.option-list::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }

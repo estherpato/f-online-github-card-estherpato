@@ -3,27 +3,36 @@ import '../stylesheets/SelectUser.css';
 
 class SelectUser extends Component {
     render() {
-        const { adalabUsers, selectHandler } = this.props;
+        const { adalabUsers, selectHandler, selectOpen, arrowHandler } = this.props;
+        let arrowClass = selectOpen ? 'fa-caret-up' : 'fa-caret-down';
+        let listClass = selectOpen ? '' : 'hidden'
         return (
-            <select
+            <ul
                 className="select"
                 onChange={selectHandler}
             >
-                <option
-                    className="option"
+                <i
+                    className={`fas ${arrowClass}`}
+                    onClick={arrowHandler}
+                ></i>
+                <li
+                    className="first-option"
                     value=''
                 >
                     Selecciona un usuario
-                </option>
-                {adalabUsers.map(user => {
-                    return (
-                        <option
-                            key={user.id}
-                            className="option"
-                            value={user.login}>{user.login}</option>
-                    );
-                })}
-            </select>
+                </li>
+                <div className={`option-list ${listClass}`}>
+                    {adalabUsers.map(user => {
+                        return (
+                            <li
+                                key={user.id}
+                                className="option"
+                                value={user.login}>{user.login}
+                            </li>
+                        );
+                    })}
+                </div>
+            </ul>
         );
     }
 }
