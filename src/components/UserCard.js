@@ -41,9 +41,17 @@ class UserCard extends Component {
                             alt={`Foto de la usuaria ${user.login}`}>
                         </div>
                         <div className="user-info">
-                            <p className="user-username">@{user.login}</p>
+                            <a
+                                href={user.html_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="user-username"
+                            >
+                                @{user.login}
+                            </a>
                             <p className="user-name">{user.name}</p>
-                            {user.location !== null ? <span className="user-loca"><i className="fas fa-map-marker-alt"></i> {user.location}</span> : ''}
+                            {user.location !== null ?
+                                <span className="user-loca"><i className="fas fa-map-marker-alt"></i>{user.location}</span> : ''}
                         </div>
                         <div className="data-container">
                             <div className="data-box">

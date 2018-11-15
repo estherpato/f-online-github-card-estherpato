@@ -36,8 +36,9 @@ class App extends Component {
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        usersData.push(data)
-        usersData.sort((a, b) => (a.login.toLowerCase() > b.login.toLowerCase()) ? 1 : ((b.login.toLowerCase() > a.login.toLowerCase()) ? -1 : 0));
+        usersData
+          .push(data)
+          .sort((a, b) => (a.login.toLowerCase() > b.login.toLowerCase()) ? 1 : ((b.login.toLowerCase() > a.login.toLowerCase()) ? -1 : 0));
         this.setState({ adalabUsers: [...usersData] })
         this.setLocalStorage(usersData)
       })
@@ -76,7 +77,6 @@ class App extends Component {
             <p>Cargando la lista de usuarios...</p>
           </div>
         </div>
-
       );
     }
   }

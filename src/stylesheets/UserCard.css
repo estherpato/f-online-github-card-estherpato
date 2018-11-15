@@ -32,6 +32,10 @@
     color: var(--icon-color);
 }
 
+.user-username:hover {
+    color: var(--poi-color);
+}
+
 .user-name {
     color: var(--name-color);
     font-size: 24px;

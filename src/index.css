@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,11 +16,15 @@
 }
 
 body {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image: linear-gradient(var(--bg-color-light), var(--bg-color-dark));
-  font-family: 'Nunito', sans-serif;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(var(--bg-color-light), var(--bg-color-dark));
+    font-family: 'Nunito', sans-serif;
+}
+
+a {
+    text-decoration: none;
 }
