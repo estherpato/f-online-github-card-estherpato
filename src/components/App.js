@@ -51,7 +51,10 @@ class App extends Component {
   }
 
   selectHandler(e) {
-    this.setState({ userSelected: e.target.value })
+    this.setState({
+      userSelected: e.target.innerText,
+      selectOpen: false,
+    })
   }
 
   arrowHandler() {

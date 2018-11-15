@@ -9,7 +9,7 @@ class SelectUser extends Component {
         return (
             <ul
                 className="select"
-                onChange={selectHandler}
+                onClick={arrowHandler}
             >
                 <i
                     className={`fas ${arrowClass}`}
@@ -17,17 +17,17 @@ class SelectUser extends Component {
                 ></i>
                 <li
                     className="first-option"
-                    value=''
                 >
                     Selecciona un usuario
                 </li>
-                <div className={`option-list ${listClass}`}>
+                <div className={`option-list ${listClass}`} onClick={selectHandler}>
                     {adalabUsers.map(user => {
                         return (
                             <li
                                 key={user.id}
                                 className="option"
-                                value={user.login}>{user.login}
+                            >
+                                {user.login}
                             </li>
                         );
                     })}
